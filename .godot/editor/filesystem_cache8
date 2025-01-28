@@ -1,0 +1,15 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1738105335
+Char.gd::GDScript::-1::1738031002::0::1::::<>CharacterBody2D<>::
+color_rect.gd::GDScript::-1::1738030059::0::1::::<>RefCounted<>::
+icon.svg::CompressedTexture2D::7498110693204109187::1737997487::1737997500::1::::<><>::
+intro.gd::GDScript::-1::1738079117::0::1::::<>Node2D<>::
+Intro.tscn::PackedScene::2922435105964465207::1738079117::0::1::::<><>::res://intro.gd<>res://char.gd<>uid://c7isejl88a6qp::::res://Still.png<>uid://dejatkbhh6pou::::res://moving.png<>uid://bjpluhj1pj1ep::::res://proxy-image-3.png<>uid://d0mw047etf42y::::res://running.png<>uid://dmv867cmkog5w::::res://Jumping.png
+Jumping.png::CompressedTexture2D::8046940812339252282::1738030961::1738030978::1::::<><>::
+Luigi.svg::CompressedTexture2D::1427076457885355741::1737997951::1737997951::1::::<><>::
+Mayro.svg::CompressedTexture2D::6598314580752328912::1737997954::1737997954::1::::<><>::
+moving.png::CompressedTexture2D::7458631282609108148::1737997614::1738027317::1::::<><>::
+proxy-image-3.png::CompressedTexture2D::3049789928313258935::1737998695::1737998701::1::::<><>::
+proxy_image_2.gd::GDScript::-1::1738026817::0::1::::<>Sprite2D<>::
+running.png::CompressedTexture2D::8940137666585573242::1738027299::1738027323::1::::<><>::
+Still.png::CompressedTexture2D::7036499926127636891::1737997610::1738027313::1::::<><>::

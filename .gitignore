@@ -1,0 +1,11 @@
+.import/
+.export/
+.editor_config
+.editor_settings-*
+*.godot.import
+*.mono/
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+

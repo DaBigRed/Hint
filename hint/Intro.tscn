@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhvwcxt0myg68"]
+
+[ext_resource type="Script" path="res://char.gd" id="1_n3wvb"]
+[ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
+[ext_resource type="Texture2D" uid="uid://dejatkbhh6pou" path="res://moving.png" id="3_3ruov"]
+[ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://proxy-image-3.png" id="4_cxa4j"]
+[ext_resource type="Texture2D" uid="uid://d0mw047etf42y" path="res://running.png" id="4_ybcbk"]
+[ext_resource type="Texture2D" uid="uid://dmv867cmkog5w" path="res://Jumping.png" id="6_htpnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
+size = Vector2(44.6756, 118.915)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvjx5"]
+size = Vector2(67.3422, 4.26398)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fy5sy"]
+normal = Vector2(1, 0)
+distance = -526.076
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3kof2"]
+normal = Vector2(-1, 0)
+distance = -525.164
+
+[node name="Scene Root" type="Node2D"]
+position = Vector2(0, 648)
+scale = Vector2(1.0968, 0.706388)
+
+[node name="Char" type="CharacterBody2D" parent="."]
+script = ExtResource("1_n3wvb")
+
+[node name="Moving" type="Sprite2D" parent="Char"]
+position = Vector2(-418.49, 366.654)
+scale = Vector2(0.0776042, 0.0848958)
+texture = ExtResource("3_3ruov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
+position = Vector2(-422.137, 366.654)
+shape = SubResource("RectangleShape2D_idxln")
+
+[node name="Still" type="Sprite2D" parent="Char"]
+position = Vector2(-423.049, 365.238)
+scale = Vector2(0.17893, 0.2)
+texture = ExtResource("1_qiyrl")
+
+[node name="Running" type="Sprite2D" parent="Char"]
+position = Vector2(-440.372, 363.823)
+scale = Vector2(0.228302, 0.281318)
+texture = ExtResource("4_ybcbk")
+
+[node name="Jumping" type="Sprite2D" parent="Char"]
+position = Vector2(-423.049, 372.317)
+scale = Vector2(0.144045, 0.225116)
+texture = ExtResource("6_htpnw")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(3.64697, 461.503)
+scale = Vector2(15.9796, 6.6636)
+shape = SubResource("RectangleShape2D_jvjx5")
+
+[node name="Grass" type="Sprite2D" parent="Floor"]
+position = Vector2(-2.73523, 457.256)
+scale = Vector2(0.148063, 0.0502229)
+texture = ExtResource("4_cxa4j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_fy5sy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_3kof2")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -2,7 +2,7 @@ extends Area2D
 
 @export var item_type: String = "Crowbar" # Can be customized for different power-ups
 
-signal collected(power_type)
+signal collected(item_type)
 
 var player_in_area: bool = false
 

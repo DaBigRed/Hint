@@ -14,6 +14,7 @@ var gravity = 1200
 @export var max_jumps: int = 1  # Default jump count
 var jumps_left: int
 var have_item = false
+var item_type = ""
 
 
 func _ready():
@@ -101,4 +102,5 @@ func _on_item_collected(item_type: Variant) -> void:
 		match item_type:
 			"Crowbar":
 				have_item = true
+				item_type = "Crowbar"
 		

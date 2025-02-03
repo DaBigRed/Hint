@@ -1,2 +1,4 @@
 res://Intro.tscn
-res://intro.gd
+res://char.gd
+res://crowbar.gd
+res://double_jump.gd

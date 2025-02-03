@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhvwcxt0myg68"]
+[gd_scene load_steps=20 format=3 uid="uid://bhvwcxt0myg68"]
 
 [ext_resource type="Script" path="res://char.gd" id="1_n3wvb"]
 [ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://proxy-image-3.png" id="4_cxa4j"]
 [ext_resource type="Texture2D" uid="uid://d0mw047etf42y" path="res://running.png" id="4_ybcbk"]
 [ext_resource type="Texture2D" uid="uid://dmv867cmkog5w" path="res://Jumping.png" id="6_htpnw"]
+[ext_resource type="Texture2D" uid="uid://cny0xkrermtcm" path="res://proxy-image-6.png" id="7_h8roe"]
+[ext_resource type="Texture2D" uid="uid://cg3x1y7be4gsw" path="res://gust.png" id="8_pxroj"]
+[ext_resource type="Script" path="res://double_jump.gd" id="8_wc2d2"]
+[ext_resource type="Script" path="res://crowbar.gd" id="10_1yix5"]
+[ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://crowbar.png" id="11_myufv"]
+[ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://wood.png" id="12_y6kga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
 size = Vector2(44.6756, 118.915)
@@ -21,34 +27,44 @@ distance = -526.076
 normal = Vector2(-1, 0)
 distance = -525.164
 
-[node name="Scene Root" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ekw6"]
+size = Vector2(978.684, 225.62)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vt15a"]
+height = 45.3008
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhuv1"]
+size = Vector2(69.2633, 288.793)
+
+[node name="Intro" type="Node2D"]
 position = Vector2(0, 648)
 scale = Vector2(1.0968, 0.706388)
 
 [node name="Char" type="CharacterBody2D" parent="."]
+position = Vector2(-486.871, 379.395)
 script = ExtResource("1_n3wvb")
 
 [node name="Moving" type="Sprite2D" parent="Char"]
-position = Vector2(-418.49, 366.654)
-scale = Vector2(0.0776042, 0.0848958)
+position = Vector2(-1.82349, -7.07825)
+scale = Vector2(0.0715679, 0.0955349)
 texture = ExtResource("3_3ruov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
-position = Vector2(-422.137, 366.654)
+position = Vector2(0.911774, 1.41562)
 shape = SubResource("RectangleShape2D_idxln")
 
 [node name="Still" type="Sprite2D" parent="Char"]
-position = Vector2(-423.049, 365.238)
+position = Vector2(-0.911713, -3.05176e-05)
 scale = Vector2(0.17893, 0.2)
 texture = ExtResource("1_qiyrl")
 
 [node name="Running" type="Sprite2D" parent="Char"]
-position = Vector2(-440.372, 363.823)
-scale = Vector2(0.228302, 0.281318)
+position = Vector2(-23.7054, -0.00012207)
+scale = Vector2(0.215647, 0.275192)
 texture = ExtResource("4_ybcbk")
 
 [node name="Jumping" type="Sprite2D" parent="Char"]
-position = Vector2(-423.049, 372.317)
+position = Vector2(1.82349, 2.8313)
 scale = Vector2(0.144045, 0.225116)
 texture = ExtResource("6_htpnw")
 
@@ -71,3 +87,124 @@ shape = SubResource("WorldBoundaryShape2D_fy5sy")
 shape = SubResource("WorldBoundaryShape2D_3kof2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-298.368, 363.823)
+scale = Vector2(0.114587, 0.100392)
+shape = SubResource("RectangleShape2D_8ekw6")
+
+[node name="Platform" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-291.365, 362.407)
+scale = Vector2(0.0874038, 0.100392)
+texture = ExtResource("7_h8roe")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-47.4107, 312.859)
+scale = Vector2(0.114587, 0.100392)
+shape = SubResource("RectangleShape2D_8ekw6")
+
+[node name="Platform" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-41.9402, 311.444)
+scale = Vector2(0.0874038, 0.100392)
+texture = ExtResource("7_h8roe")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(88.4391, 148.643)
+scale = Vector2(0.114587, 0.100392)
+shape = SubResource("RectangleShape2D_8ekw6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(200.584, 148.643)
+scale = Vector2(0.114587, 0.100392)
+shape = SubResource("RectangleShape2D_8ekw6")
+
+[node name="Platform" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(159.555, 148.643)
+scale = Vector2(0.170726, 0.100392)
+texture = ExtResource("7_h8roe")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-230.215, 15.5721)
+scale = Vector2(0.114587, 0.100392)
+shape = SubResource("RectangleShape2D_8ekw6")
+
+[node name="Platform" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(-221.554, 12.7408)
+scale = Vector2(0.0874038, 0.100392)
+texture = ExtResource("7_h8roe")
+
+[node name="Double_Jump" type="Area2D" parent="."]
+position = Vector2(-51.9694, 253.402)
+script = ExtResource("8_wc2d2")
+
+[node name="Gust" type="Sprite2D" parent="Double_Jump"]
+position = Vector2(7.62939e-06, 2.83133)
+rotation = -1.5708
+scale = Vector2(0.0686749, 0.0395222)
+texture = ExtResource("8_pxroj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Double_Jump"]
+offset_left = -144.967
+offset_top = -9.90958
+offset_right = -13.9677
+offset_bottom = 50.0904
+text = "Adds a jump ->
+"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+threaded = true
+visible_characters_behavior = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Double_Jump"]
+position = Vector2(0.911743, 1.41566)
+shape = SubResource("CapsuleShape2D_vt15a")
+
+[node name="Crowbar" type="Area2D" parent="."]
+position = Vector2(-224.289, -67.9513)
+script = ExtResource("10_1yix5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Crowbar"]
+offset_left = -177.0
+offset_top = -48.0
+offset_right = -46.0
+offset_bottom = 34.0
+text = "Crowbar ->
+e to pick up
+q to set down"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+threaded = true
+visible_characters_behavior = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crowbar"]
+position = Vector2(-0.911743, 1.41566)
+shape = SubResource("CapsuleShape2D_vt15a")
+
+[node name="Crowbar" type="Sprite2D" parent="Crowbar"]
+position = Vector2(-1.82332, 1.41565)
+scale = Vector2(0.047885, 0.102075)
+texture = ExtResource("11_myufv")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="Wood" type="Sprite2D" parent="Area2D"]
+position = Vector2(234.318, -26.1457)
+scale = Vector2(0.671334, 1.27882)
+texture = ExtResource("12_y6kga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(223.392, -4.24695)
+shape = SubResource("RectangleShape2D_mhuv1")
+
+[connection signal="collected" from="Double_Jump" to="Char" method="_on_power_up_collected"]
+[connection signal="collected" from="Crowbar" to="Char" method="_on_item_collected"]

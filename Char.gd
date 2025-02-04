@@ -15,6 +15,7 @@ var gravity = 1200
 var jumps_left: int
 var have_item = false
 var item_type = ""
+signal item()
 
 
 func _ready():
@@ -104,3 +105,8 @@ func _on_item_collected(item_type: Variant) -> void:
 				have_item = true
 				item_type = "Crowbar"
 		
+
+
+func _on_wood_near_break() -> void:
+	if have_item == true:
+		item.emit(item_type)

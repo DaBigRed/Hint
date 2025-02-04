@@ -1,3 +1,5 @@
 res://Intro.tscn
 res://area_2d.gd
 res://crowbar.gd
+res://char.gd
+res://wood.gd

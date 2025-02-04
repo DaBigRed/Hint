@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhvwcxt0myg68"]
+[gd_scene load_steps=23 format=3 uid="uid://bhvwcxt0myg68"]
 
 [ext_resource type="Script" path="res://char.gd" id="1_n3wvb"]
 [ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://crowbar.png" id="11_myufv"]
 [ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://wood.png" id="12_y6kga"]
 [ext_resource type="Script" path="res://area_2d.gd" id="13_k4fcv"]
+[ext_resource type="Script" path="res://wood.gd" id="14_k6gc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
 size = Vector2(44.6756, 118.915)
@@ -200,6 +201,8 @@ scale = Vector2(0.047885, 0.102075)
 texture = ExtResource("11_myufv")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
+visible = false
+script = ExtResource("13_k4fcv")
 
 [node name="Wood" type="Sprite2D" parent="Area2D"]
 position = Vector2(234.318, -26.1457)
@@ -218,12 +221,15 @@ offset_bottom = -8.0
 text = "Press space to use item ->"
 
 [node name="wood" type="Area2D" parent="Area2D"]
-script = ExtResource("13_k4fcv")
+script = ExtResource("14_k6gc4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/wood"]
 position = Vector2(170.496, 92.0174)
 shape = SubResource("RectangleShape2D_jqr3a")
 
+[connection signal="item" from="Char" to="Area2D/wood" method="_on_char_item"]
 [connection signal="collected" from="Double_Jump" to="Char" method="_on_power_up_collected"]
 [connection signal="collected" from="Crowbar" to="Char" method="_on_item_collected"]
 [connection signal="collected" from="Crowbar" to="Area2D/wood" method="_on_crowbar_collected"]
+[connection signal="broken" from="Area2D/wood" to="Area2D" method="_on_wood_broken"]
+[connection signal="near_break" from="Area2D/wood" to="Char" method="_on_wood_near_break"]

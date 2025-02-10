@@ -1,50 +1,61 @@
 extends CharacterBody2D
 
 # Movement variables
-var speed = 200
+var max_speed = 200
 var run_speed = 400
-var jump_force = -400  # Negative because y-axis is downward in Godot
+var acceleration = 1500
+var deceleration = 1200
+var air_control = 600  # Less control in the air
+var jump_force = -400  
 var gravity = 1200
-var inventory = []  # List of collected items
+var jump_release_reduction = 0.5  # Reduces jump height if released early
+var inventory = []  
+
+# Velocity tracking
+var target_speed = 0  
 
 # Sprite references
 @onready var still_sprite = $Still
 @onready var moving_sprite = $Moving
 @onready var running_sprite = $Running
 @onready var jumping_sprite = $Jumping
-@export var max_jumps: int = 1  # Default jump count
+@export var max_jumps: int = 1  
 var jumps_left: int
 var have_item = false
 var item_type = ""
 signal item()
 
-
 func _ready():
-	# Ensure only the still sprite is visible initially
 	update_sprite_visibility(false)
 	jumps_left = max_jumps
 	
-func get_input():
+func get_input(delta):
+	var direction = Input.get_axis("left", "right")  
+	var is_running = Input.is_action_pressed("shift") and is_on_floor()  # Sprint only if on the ground
+	var is_jumping = Input.is_action_just_pressed("jump")
+	var is_releasing_jump = Input.is_action_just_released("jump")
 	
-	var direction = Input.get_axis("left", "right")  # Get -1, 0, or 1 based on input
-	var is_running = Input.is_action_pressed("shift") 
-	var move_speed
-	if not is_on_floor():
-		move_speed = speed
+	# Set target speed based on walking or running
+	target_speed = (run_speed if is_running else max_speed) * direction
+	
+	# Adjust acceleration/deceleration based on ground/air
+	var accel = acceleration if is_on_floor() else air_control
+	var decel = deceleration if is_on_floor() else air_control / 2
+	
+	# Accelerate towards target speed
+	if direction != 0:
+		velocity.x = move_toward(velocity.x, target_speed, accel * delta)
 	else:
-		move_speed= run_speed if is_running else speed
-		 
-
-	velocity.x = direction * move_speed  # Apply movement
-
+		velocity.x = move_toward(velocity.x, 0, decel * delta)
+	
 	# Jumping logic
-	if Input.is_action_just_pressed("jump") and jumps_left > 0:
+	if is_jumping and jumps_left > 0:
 		velocity.y = jump_force
-		jumps_left -= 1  # Decrease jumps left
+		jumps_left -= 1  
 
-func _process(_delta):
-	pass
-
+	# Reduce jump height if released early
+	if is_releasing_jump and velocity.y < 0:
+		velocity.y *= jump_release_reduction
 
 func _physics_process(delta):
 	# Apply gravity
@@ -52,22 +63,23 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	else:
 		jumps_left = max_jumps
-		
+	
 	# Get input and apply movement
-	get_input()
+	get_input(delta)
+	
 	# Move the character
 	move_and_slide()  
+
 	# Update sprite visibility based on movement state
 	update_sprite_visibility(velocity.x != 0)
-	
 
 func update_sprite_visibility(is_moving):
 	if not is_on_floor():
-		show_sprite(jumping_sprite)  # Jumping state
+		show_sprite(jumping_sprite)  
 	elif velocity.x == 0:
-		show_sprite(still_sprite)  # Idle state
+		show_sprite(still_sprite)  
 	else:
-		show_sprite(running_sprite if is_moving and Input.is_action_pressed("shift") else moving_sprite)  # Walking or Running
+		show_sprite(running_sprite if is_moving and Input.is_action_pressed("shift") else moving_sprite)  
 
 	# Flip sprite based on movement direction
 	var flip = velocity.x < 0
@@ -85,20 +97,15 @@ func show_sprite(sprite_to_show):
 
 	# Show the specified sprite
 	sprite_to_show.visible = true
-	
-	#TODO add an item to pick up and drop, add platforms
-
 
 func _on_power_up_collected(power_type: Variant) -> void:
 	match power_type:
 		"Jump":
-			max_jumps +=1
+			max_jumps += 1
 			jumps_left = max_jumps
 			
-
-
 func _on_item_collected(item_type: Variant) -> void:
-	if have_item == true:
+	if have_item:
 		return
 	else:
 		match item_type:
@@ -107,9 +114,6 @@ func _on_item_collected(item_type: Variant) -> void:
 				item_type = "crowbar"
 				inventory.append("crowbar")
 				item.emit("crowbar")
-		
 
-		
 func has_item(item_name: String) -> bool:
 	return item_name in inventory
-	

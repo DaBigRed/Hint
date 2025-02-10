@@ -113,7 +113,3 @@ func _on_item_collected(item_type: Variant) -> void:
 func has_item(item_name: String) -> bool:
 	return item_name in inventory
 	
-
-
-func _on_collision_shape_2d_is_in() -> void:
-	pass # Replace with function body.

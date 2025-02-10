@@ -17,7 +17,8 @@ func _process(_delta: float) -> void:
 func _on_body_entered_br(_body):
 	print("in on_body_entered_br")
 	print("Entered by:", _body.name)
-	player_in_area = true
+	if _body.name == "player":
+		player_in_area = true
 	
 
 func _on_body_exited_br(_body):

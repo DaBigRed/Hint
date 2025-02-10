@@ -6,3 +6,4 @@ res://crowbar.gd
 res://TestLevel/Intro.tscn
 res://TestLevel/barrier.gd
 res://TestLevel/near_barrier.gd
+res://TestLevel/player.gd

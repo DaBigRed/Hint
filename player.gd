@@ -5,6 +5,7 @@ var speed = 200
 var run_speed = 400
 var jump_force = -400  # Negative because y-axis is downward in Godot
 var gravity = 1200
+var inventory = []  # List of collected items
 
 # Sprite references
 @onready var still_sprite = $Still
@@ -41,6 +42,10 @@ func get_input():
 		velocity.y = jump_force
 		jumps_left -= 1  # Decrease jumps left
 
+func _process(_delta):
+	pass
+
+
 func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
@@ -48,14 +53,10 @@ func _physics_process(delta):
 	else:
 		jumps_left = max_jumps
 		
-
 	# Get input and apply movement
 	get_input()
-
-
 	# Move the character
 	move_and_slide()  
-
 	# Update sprite visibility based on movement state
 	update_sprite_visibility(velocity.x != 0)
 	
@@ -101,12 +102,18 @@ func _on_item_collected(item_type: Variant) -> void:
 		return
 	else:
 		match item_type:
-			"Crowbar":
+			"crowbar":
 				have_item = true
-				item_type = "Crowbar"
+				item_type = "crowbar"
+				inventory.append("crowbar")
+				item.emit("crowbar")
 		
 
+		
+func has_item(item_name: String) -> bool:
+	return item_name in inventory
+	
 
-func _on_wood_near_break() -> void:
-	if have_item == true:
-		item.emit(item_type)
+
+func _on_collision_shape_2d_is_in() -> void:
+	pass # Replace with function body.

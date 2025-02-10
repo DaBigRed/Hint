@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://bhvwcxt0myg68"]
 
-[ext_resource type="Script" path="res://char.gd" id="1_n3wvb"]
+[ext_resource type="Script" path="res://player.gd" id="1_n3wvb"]
 [ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
 [ext_resource type="Texture2D" uid="uid://dejatkbhh6pou" path="res://moving.png" id="3_3ruov"]
 [ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://proxy-image-3.png" id="4_cxa4j"]
@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://crowbar.gd" id="10_1yix5"]
 [ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://crowbar.png" id="11_myufv"]
 [ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://wood.png" id="12_y6kga"]
-[ext_resource type="Script" path="res://area_2d.gd" id="13_k4fcv"]
-[ext_resource type="Script" path="res://wood.gd" id="14_k6gc4"]
+[ext_resource type="Script" path="res://barrier.gd" id="13_k4fcv"]
+[ext_resource type="Script" path="res://near_barrier.gd" id="14_4jvvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
 size = Vector2(44.6756, 118.915)
@@ -38,37 +38,37 @@ height = 45.3008
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhuv1"]
 size = Vector2(69.2633, 288.793)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqr3a"]
-size = Vector2(35.5288, 93.5235)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mipuh"]
+size = Vector2(106.674, 327.016)
 
-[node name="Intro" type="Node2D"]
+[node name="Main" type="Node2D"]
 position = Vector2(0, 648)
 scale = Vector2(1.0968, 0.706388)
 
-[node name="Char" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(-486.871, 379.395)
 script = ExtResource("1_n3wvb")
 
-[node name="Moving" type="Sprite2D" parent="Char"]
+[node name="Moving" type="Sprite2D" parent="player"]
 position = Vector2(-1.82349, -7.07825)
 scale = Vector2(0.0715679, 0.0955349)
 texture = ExtResource("3_3ruov")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(0.911774, 1.41562)
 shape = SubResource("RectangleShape2D_idxln")
 
-[node name="Still" type="Sprite2D" parent="Char"]
+[node name="Still" type="Sprite2D" parent="player"]
 position = Vector2(-0.911713, -3.05176e-05)
 scale = Vector2(0.17893, 0.2)
 texture = ExtResource("1_qiyrl")
 
-[node name="Running" type="Sprite2D" parent="Char"]
+[node name="Running" type="Sprite2D" parent="player"]
 position = Vector2(-23.7054, -0.00012207)
 scale = Vector2(0.215647, 0.275192)
 texture = ExtResource("4_ybcbk")
 
-[node name="Jumping" type="Sprite2D" parent="Char"]
+[node name="Jumping" type="Sprite2D" parent="player"]
 position = Vector2(1.82349, 2.8313)
 scale = Vector2(0.144045, 0.225116)
 texture = ExtResource("6_htpnw")
@@ -200,36 +200,33 @@ position = Vector2(-1.82332, 1.41565)
 scale = Vector2(0.047885, 0.102075)
 texture = ExtResource("11_myufv")
 
-[node name="Area2D" type="StaticBody2D" parent="."]
-visible = false
+[node name="Barrier" type="StaticBody2D" parent="."]
 script = ExtResource("13_k4fcv")
 
-[node name="Wood" type="Sprite2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(223.392, -4.24695)
+shape = SubResource("RectangleShape2D_mhuv1")
+
+[node name="TextEdit" type="RichTextLabel" parent="Barrier"]
+offset_left = -41.9402
+offset_top = -45.3009
+offset_right = 172.06
+offset_bottom = -6.30085
+text = "Press space to use item ->"
+
+[node name="Wood" type="Sprite2D" parent="Barrier"]
 position = Vector2(234.318, -26.1457)
 scale = Vector2(0.671334, 1.27882)
 texture = ExtResource("12_y6kga")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(223.392, -4.24695)
-shape = SubResource("RectangleShape2D_mhuv1")
+[node name="Area2D" type="Area2D" parent="Barrier"]
+script = ExtResource("14_4jvvf")
 
-[node name="TextEdit" type="TextEdit" parent="Area2D"]
-offset_left = -46.0
-offset_top = -47.0
-offset_right = 168.0
-offset_bottom = -8.0
-text = "Press space to use item ->"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Area2D"]
+position = Vector2(212.892, -23.3582)
+shape = SubResource("RectangleShape2D_mipuh")
 
-[node name="wood" type="Area2D" parent="Area2D"]
-script = ExtResource("14_k6gc4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/wood"]
-position = Vector2(170.496, 92.0174)
-shape = SubResource("RectangleShape2D_jqr3a")
-
-[connection signal="item" from="Char" to="Area2D/wood" method="_on_char_item"]
-[connection signal="collected" from="Double_Jump" to="Char" method="_on_power_up_collected"]
-[connection signal="collected" from="Crowbar" to="Char" method="_on_item_collected"]
-[connection signal="collected" from="Crowbar" to="Area2D/wood" method="_on_crowbar_collected"]
-[connection signal="broken" from="Area2D/wood" to="Area2D" method="_on_wood_broken"]
-[connection signal="near_break" from="Area2D/wood" to="Char" method="_on_wood_near_break"]
+[connection signal="item" from="player" to="Barrier/Area2D" method="_on_player_item"]
+[connection signal="collected" from="Double_Jump" to="player" method="_on_power_up_collected"]
+[connection signal="collected" from="Crowbar" to="player" method="_on_item_collected"]
+[connection signal="destroy" from="Barrier/Area2D" to="Barrier" method="_on_area_2d_destroy"]

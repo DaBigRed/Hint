@@ -1,19 +1,19 @@
 extends Area2D
 
-@export var item_type: String = "Crowbar" # Can be customized for different power-ups
+@export var item_type: String = "crowbar" # Can be customized for different power-ups
 
 signal collected(item_type)
 
 var player_in_area: bool = false
 
 func _ready():
-	connect("body_entered", _on_body_entered)
-	connect("body_exited", _on_body_exited)
+	connect("body_entered", _on_body_entered_cb)
+	connect("body_exited", _on_body_exited_cb)
 
-func _on_body_entered(_body):
+func _on_body_entered_cb(_body):
 	player_in_area = true
 
-func _on_body_exited(_body):
+func _on_body_exited_cb(_body):
 	player_in_area = false
 
 func _process(_delta):

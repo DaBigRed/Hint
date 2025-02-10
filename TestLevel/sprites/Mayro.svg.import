@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de3e11q8ri4p8"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://c1ajjol5k2ece"
+path="res://.godot/imported/Mayro.svg-e25bd72d370c90562b75d2eff00ef86d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://TestLevel/sprites/Mayro.svg"
+dest_files=["res://.godot/imported/Mayro.svg-e25bd72d370c90562b75d2eff00ef86d.ctex"]
 
 [params]
 

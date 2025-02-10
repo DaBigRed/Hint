@@ -1,12 +1,12 @@
 extends Area2D
-var player_in_area = false
+var player_in_area: bool = false
 signal destroy
 var cur_item = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect("body_entered", _on_body_entered_br)
-	connect("body_exited", _on_body_exited_br)
+	connect("body_entered", Callable(self, "_on_body_entered_br"))
+	connect("body_exited", Callable(self, "_on_body_exited_br"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +15,8 @@ func _process(_delta: float) -> void:
 		destroy.emit()
 	
 func _on_body_entered_br(_body):
+	print("in on_body_entered_br")
+	print("Entered by:", _body.name)
 	player_in_area = true
 	
 

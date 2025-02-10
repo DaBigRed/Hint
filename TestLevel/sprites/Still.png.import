@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejatkbhh6pou"
-path="res://.godot/imported/moving.png-f803fefece9acbfc886dbbaedde3574f.ctex"
+uid="uid://c7isejl88a6qp"
+path="res://.godot/imported/Still.png-2ea6a90159fe6e7d4e128bcca5f0e3af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://moving.png"
-dest_files=["res://.godot/imported/moving.png-f803fefece9acbfc886dbbaedde3574f.ctex"]
+source_file="res://TestLevel/sprites/Still.png"
+dest_files=["res://.godot/imported/Still.png-2ea6a90159fe6e7d4e128bcca5f0e3af.ctex"]
 
 [params]
 

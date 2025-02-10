@@ -3,3 +3,6 @@ res://player.gd
 res://Intro.tscn
 res://near_barrier.gd
 res://crowbar.gd
+res://TestLevel/Intro.tscn
+res://TestLevel/barrier.gd
+res://TestLevel/near_barrier.gd

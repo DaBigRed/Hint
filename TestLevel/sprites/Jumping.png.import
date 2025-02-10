@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kcnx2rgsn5ty"
-path="res://.godot/imported/wood.png-320746db63b5a5eb1bb7f02275994b36.ctex"
+uid="uid://dmv867cmkog5w"
+path="res://.godot/imported/Jumping.png-6038baecff8726456c9d62ffbef928a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wood.png"
-dest_files=["res://.godot/imported/wood.png-320746db63b5a5eb1bb7f02275994b36.ctex"]
+source_file="res://TestLevel/sprites/Jumping.png"
+dest_files=["res://.godot/imported/Jumping.png-6038baecff8726456c9d62ffbef928a5.ctex"]
 
 [params]
 

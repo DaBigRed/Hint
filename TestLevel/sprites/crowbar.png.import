@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cny0xkrermtcm"
-path="res://.godot/imported/proxy-image-6.png-2001b3eae199813e49fbf18b966c6537.ctex"
+uid="uid://6g7iv8bigtb1"
+path="res://.godot/imported/crowbar.png-4afe17067508be89ac8cc5649d7c1ebf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://proxy-image-6.png"
-dest_files=["res://.godot/imported/proxy-image-6.png-2001b3eae199813e49fbf18b966c6537.ctex"]
+source_file="res://TestLevel/sprites/crowbar.png"
+dest_files=["res://.godot/imported/crowbar.png-4afe17067508be89ac8cc5649d7c1ebf.ctex"]
 
 [params]
 

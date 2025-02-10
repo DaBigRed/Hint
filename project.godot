@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Hint"
-run/main_scene="res://Intro.tscn"
+run/main_scene="res://TestLevel/Intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://TestLevel/sprites/icon.svg"
 
 [display]
 

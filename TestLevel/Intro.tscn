@@ -1,19 +1,19 @@
 [gd_scene load_steps=23 format=3 uid="uid://bhvwcxt0myg68"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_n3wvb"]
-[ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
-[ext_resource type="Texture2D" uid="uid://dejatkbhh6pou" path="res://moving.png" id="3_3ruov"]
-[ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://proxy-image-3.png" id="4_cxa4j"]
-[ext_resource type="Texture2D" uid="uid://d0mw047etf42y" path="res://running.png" id="4_ybcbk"]
-[ext_resource type="Texture2D" uid="uid://dmv867cmkog5w" path="res://Jumping.png" id="6_htpnw"]
-[ext_resource type="Texture2D" uid="uid://cny0xkrermtcm" path="res://proxy-image-6.png" id="7_h8roe"]
-[ext_resource type="Texture2D" uid="uid://cg3x1y7be4gsw" path="res://gust.png" id="8_pxroj"]
-[ext_resource type="Script" path="res://double_jump.gd" id="8_wc2d2"]
-[ext_resource type="Script" path="res://crowbar.gd" id="10_1yix5"]
-[ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://crowbar.png" id="11_myufv"]
-[ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://wood.png" id="12_y6kga"]
-[ext_resource type="Script" path="res://barrier.gd" id="13_k4fcv"]
-[ext_resource type="Script" path="res://near_barrier.gd" id="14_4jvvf"]
+[ext_resource type="Script" path="res://TestLevel/player.gd" id="1_i1bt8"]
+[ext_resource type="Texture2D" uid="uid://dejatkbhh6pou" path="res://TestLevel/sprites/moving.png" id="2_binbk"]
+[ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://TestLevel/sprites/Still.png" id="3_sbqxy"]
+[ext_resource type="Texture2D" uid="uid://d0mw047etf42y" path="res://TestLevel/sprites/running.png" id="4_uqiim"]
+[ext_resource type="Texture2D" uid="uid://dmv867cmkog5w" path="res://TestLevel/sprites/Jumping.png" id="5_ofnyw"]
+[ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://TestLevel/sprites/proxy-image-3.png" id="6_5y2na"]
+[ext_resource type="Texture2D" uid="uid://cny0xkrermtcm" path="res://TestLevel/sprites/proxy-image-6.png" id="7_jt6va"]
+[ext_resource type="Script" path="res://TestLevel/double_jump.gd" id="8_13gi5"]
+[ext_resource type="Texture2D" uid="uid://cg3x1y7be4gsw" path="res://TestLevel/sprites/gust.png" id="9_qhcve"]
+[ext_resource type="Script" path="res://TestLevel/crowbar.gd" id="10_x70hq"]
+[ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://TestLevel/sprites/crowbar.png" id="11_nhj81"]
+[ext_resource type="Script" path="res://TestLevel/barrier.gd" id="12_af0ss"]
+[ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://TestLevel/sprites/wood.png" id="13_4jnx4"]
+[ext_resource type="Script" path="res://TestLevel/near_barrier.gd" id="14_mnfl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
 size = Vector2(44.6756, 118.915)
@@ -39,7 +39,7 @@ height = 45.3008
 size = Vector2(69.2633, 288.793)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mipuh"]
-size = Vector2(106.674, 327.016)
+size = Vector2(41.4843, 87.0627)
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, 648)
@@ -47,12 +47,12 @@ scale = Vector2(1.0968, 0.706388)
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(-486.871, 379.395)
-script = ExtResource("1_n3wvb")
+script = ExtResource("1_i1bt8")
 
 [node name="Moving" type="Sprite2D" parent="player"]
 position = Vector2(-1.82349, -7.07825)
 scale = Vector2(0.0715679, 0.0955349)
-texture = ExtResource("3_3ruov")
+texture = ExtResource("2_binbk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(0.911774, 1.41562)
@@ -61,17 +61,17 @@ shape = SubResource("RectangleShape2D_idxln")
 [node name="Still" type="Sprite2D" parent="player"]
 position = Vector2(-0.911713, -3.05176e-05)
 scale = Vector2(0.17893, 0.2)
-texture = ExtResource("1_qiyrl")
+texture = ExtResource("3_sbqxy")
 
 [node name="Running" type="Sprite2D" parent="player"]
 position = Vector2(-23.7054, -0.00012207)
 scale = Vector2(0.215647, 0.275192)
-texture = ExtResource("4_ybcbk")
+texture = ExtResource("4_uqiim")
 
 [node name="Jumping" type="Sprite2D" parent="player"]
 position = Vector2(1.82349, 2.8313)
 scale = Vector2(0.144045, 0.225116)
-texture = ExtResource("6_htpnw")
+texture = ExtResource("5_ofnyw")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -83,7 +83,7 @@ shape = SubResource("RectangleShape2D_jvjx5")
 [node name="Grass" type="Sprite2D" parent="Floor"]
 position = Vector2(-2.73523, 457.256)
 scale = Vector2(0.148063, 0.0502229)
-texture = ExtResource("4_cxa4j")
+texture = ExtResource("6_5y2na")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_fy5sy")
@@ -103,7 +103,7 @@ shape = SubResource("RectangleShape2D_8ekw6")
 [node name="Platform" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(-291.365, 362.407)
 scale = Vector2(0.0874038, 0.100392)
-texture = ExtResource("7_h8roe")
+texture = ExtResource("7_jt6va")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -115,7 +115,7 @@ shape = SubResource("RectangleShape2D_8ekw6")
 [node name="Platform" type="Sprite2D" parent="StaticBody2D2"]
 position = Vector2(-41.9402, 311.444)
 scale = Vector2(0.0874038, 0.100392)
-texture = ExtResource("7_h8roe")
+texture = ExtResource("7_jt6va")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
@@ -130,9 +130,9 @@ scale = Vector2(0.114587, 0.100392)
 shape = SubResource("RectangleShape2D_8ekw6")
 
 [node name="Platform" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(159.555, 148.643)
-scale = Vector2(0.170726, 0.100392)
-texture = ExtResource("7_h8roe")
+position = Vector2(159.555, 150.051)
+scale = Vector2(0.170726, 0.103956)
+texture = ExtResource("7_jt6va")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
@@ -144,17 +144,17 @@ shape = SubResource("RectangleShape2D_8ekw6")
 [node name="Platform" type="Sprite2D" parent="StaticBody2D4"]
 position = Vector2(-221.554, 12.7408)
 scale = Vector2(0.0874038, 0.100392)
-texture = ExtResource("7_h8roe")
+texture = ExtResource("7_jt6va")
 
 [node name="Double_Jump" type="Area2D" parent="."]
 position = Vector2(-51.9694, 253.402)
-script = ExtResource("8_wc2d2")
+script = ExtResource("8_13gi5")
 
 [node name="Gust" type="Sprite2D" parent="Double_Jump"]
 position = Vector2(7.62939e-06, 2.83133)
 rotation = -1.5708
 scale = Vector2(0.0686749, 0.0395222)
-texture = ExtResource("8_pxroj")
+texture = ExtResource("9_qhcve")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Double_Jump"]
 offset_left = -144.967
@@ -175,7 +175,7 @@ shape = SubResource("CapsuleShape2D_vt15a")
 
 [node name="Crowbar" type="Area2D" parent="."]
 position = Vector2(-224.289, -67.9513)
-script = ExtResource("10_1yix5")
+script = ExtResource("10_x70hq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Crowbar"]
 offset_left = -177.0
@@ -198,10 +198,10 @@ shape = SubResource("CapsuleShape2D_vt15a")
 [node name="Crowbar" type="Sprite2D" parent="Crowbar"]
 position = Vector2(-1.82332, 1.41565)
 scale = Vector2(0.047885, 0.102075)
-texture = ExtResource("11_myufv")
+texture = ExtResource("11_nhj81")
 
 [node name="Barrier" type="StaticBody2D" parent="."]
-script = ExtResource("13_k4fcv")
+script = ExtResource("12_af0ss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
 position = Vector2(223.392, -4.24695)
@@ -217,13 +217,13 @@ text = "Press space to use item ->"
 [node name="Wood" type="Sprite2D" parent="Barrier"]
 position = Vector2(234.318, -26.1457)
 scale = Vector2(0.671334, 1.27882)
-texture = ExtResource("12_y6kga")
+texture = ExtResource("13_4jnx4")
 
 [node name="Area2D" type="Area2D" parent="Barrier"]
-script = ExtResource("14_4jvvf")
+script = ExtResource("14_mnfl7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Area2D"]
-position = Vector2(212.892, -23.3582)
+position = Vector2(162.062, 87.4166)
 shape = SubResource("RectangleShape2D_mipuh")
 
 [connection signal="item" from="player" to="Barrier/Area2D" method="_on_player_item"]

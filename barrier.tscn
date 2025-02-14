@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://biew1gj570hqn"]
+
+[ext_resource type="Script" path="res://Game/TestLevel/barrier.gd" id="1_2lh15"]
+[ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://Game/TestLevel/wood.png" id="2_fu2pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhuv1"]
+size = Vector2(69.2633, 288.793)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mipuh"]
+size = Vector2(41.4843, 87.0627)
+
+[node name="Barrier" type="StaticBody2D"]
+script = ExtResource("1_2lh15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(223.392, -4.24695)
+shape = SubResource("RectangleShape2D_mhuv1")
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+offset_left = -41.9402
+offset_top = -45.3009
+offset_right = 172.06
+offset_bottom = -6.30085
+text = "Press space to use item ->"
+
+[node name="Wood" type="Sprite2D" parent="."]
+position = Vector2(234.318, -26.1457)
+scale = Vector2(0.671334, 1.27882)
+texture = ExtResource("2_fu2pn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(162.062, 87.4166)
+shape = SubResource("RectangleShape2D_mipuh")

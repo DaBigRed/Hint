@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq2v7y6pnoeev"]
+
+[ext_resource type="Script" path="res://Game/crowbar.gd" id="1_1altu"]
+[ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://Game/TestLevel/crowbar.png" id="2_mgdd2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vt15a"]
+height = 45.3008
+
+[node name="Crowbar" type="Area2D"]
+position = Vector2(-224.289, -67.9513)
+script = ExtResource("1_1altu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -177.0
+offset_top = -48.0
+offset_right = -46.0
+offset_bottom = 34.0
+text = "Crowbar ->
+e to pick up
+q to set down"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+threaded = true
+visible_characters_behavior = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.911743, 1.41566)
+shape = SubResource("CapsuleShape2D_vt15a")
+
+[node name="Crowbar" type="Sprite2D" parent="."]
+position = Vector2(-1.82332, 1.41565)
+scale = Vector2(0.047885, 0.102075)
+texture = ExtResource("2_mgdd2")

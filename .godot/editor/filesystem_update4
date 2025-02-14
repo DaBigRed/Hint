@@ -1,9 +1,4 @@
-res://barrier.gd
-res://player.gd
-res://Intro.tscn
-res://near_barrier.gd
-res://crowbar.gd
-res://TestLevel/Intro.tscn
-res://TestLevel/barrier.gd
-res://TestLevel/near_barrier.gd
-res://TestLevel/player.gd
+res://Game/World.tscn
+res://Game/TestLevel.tscn
+res://Game/player.tscn
+res://Game/world.gd

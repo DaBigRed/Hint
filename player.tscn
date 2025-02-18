@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://jpuc625t18mu"]
+
+[ext_resource type="Script" path="res://Game/player.gd" id="1_w4hvi"]
+[ext_resource type="Texture2D" path="res://Game/TestLevel/moving.png" id="2_r1l51"]
+[ext_resource type="Texture2D" path="res://Game/player/Still.png" id="3_grfn4"]
+[ext_resource type="Texture2D" path="res://Game/player/running.png" id="4_uy8qf"]
+[ext_resource type="Texture2D" path="res://Game/player/Jumping.png" id="5_bnpmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
+size = Vector2(44.6756, 118.915)
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(-486.871, 379.395)
+script = ExtResource("1_w4hvi")
+
+[node name="Moving" type="Sprite2D" parent="."]
+position = Vector2(-1.82349, -7.07825)
+scale = Vector2(0.0715679, 0.0955349)
+texture = ExtResource("2_r1l51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.911774, 1.41562)
+shape = SubResource("RectangleShape2D_idxln")
+
+[node name="Still" type="Sprite2D" parent="."]
+position = Vector2(-0.911713, -3.05176e-05)
+scale = Vector2(0.17893, 0.2)
+texture = ExtResource("3_grfn4")
+
+[node name="Running" type="Sprite2D" parent="."]
+position = Vector2(-23.7054, -0.00012207)
+scale = Vector2(0.215647, 0.275192)
+texture = ExtResource("4_uy8qf")
+
+[node name="Jumping" type="Sprite2D" parent="."]
+position = Vector2(1.82349, 2.8313)
+scale = Vector2(0.144045, 0.225116)
+texture = ExtResource("5_bnpmo")

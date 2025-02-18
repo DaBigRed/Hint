@@ -1,22 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhvwcxt0myg68"]
+[gd_scene load_steps=20 format=3 uid="uid://bhvwcxt0myg68"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_n3wvb"]
-[ext_resource type="Texture2D" uid="uid://c7isejl88a6qp" path="res://Still.png" id="1_qiyrl"]
-[ext_resource type="Texture2D" uid="uid://dejatkbhh6pou" path="res://moving.png" id="3_3ruov"]
-[ext_resource type="Texture2D" uid="uid://bjpluhj1pj1ep" path="res://proxy-image-3.png" id="4_cxa4j"]
-[ext_resource type="Texture2D" uid="uid://d0mw047etf42y" path="res://running.png" id="4_ybcbk"]
-[ext_resource type="Texture2D" uid="uid://dmv867cmkog5w" path="res://Jumping.png" id="6_htpnw"]
-[ext_resource type="Texture2D" uid="uid://cny0xkrermtcm" path="res://proxy-image-6.png" id="7_h8roe"]
-[ext_resource type="Texture2D" uid="uid://cg3x1y7be4gsw" path="res://gust.png" id="8_pxroj"]
+[ext_resource type="Texture2D" uid="uid://dawin7lx8n3fu" path="res://tempSprite.png" id="2_0bxgp"]
+[ext_resource type="Texture2D" uid="uid://cfdvls1apvbko" path="res://proxy-image-3.png" id="4_cxa4j"]
+[ext_resource type="Texture2D" uid="uid://bf3lrqguqxsmv" path="res://proxy-image-6.png" id="7_h8roe"]
+[ext_resource type="Texture2D" uid="uid://cbqq3ciif101j" path="res://gust.png" id="8_pxroj"]
 [ext_resource type="Script" path="res://double_jump.gd" id="8_wc2d2"]
 [ext_resource type="Script" path="res://crowbar.gd" id="10_1yix5"]
-[ext_resource type="Texture2D" uid="uid://6g7iv8bigtb1" path="res://crowbar.png" id="11_myufv"]
-[ext_resource type="Texture2D" uid="uid://kcnx2rgsn5ty" path="res://wood.png" id="12_y6kga"]
+[ext_resource type="Texture2D" uid="uid://clhvcec3cy8pc" path="res://crowbar.png" id="11_myufv"]
+[ext_resource type="Texture2D" uid="uid://cx5iujlrcncnd" path="res://wood.png" id="12_y6kga"]
 [ext_resource type="Script" path="res://barrier.gd" id="13_k4fcv"]
 [ext_resource type="Script" path="res://near_barrier.gd" id="14_4jvvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idxln"]
-size = Vector2(44.6756, 118.915)
+size = Vector2(44.6756, 69.3671)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvjx5"]
 size = Vector2(67.3422, 4.26398)
@@ -46,32 +43,32 @@ position = Vector2(0, 648)
 scale = Vector2(1.0968, 0.706388)
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(-486.871, 379.395)
+position = Vector2(-533.37, 464.334)
 script = ExtResource("1_n3wvb")
 
 [node name="Moving" type="Sprite2D" parent="player"]
-position = Vector2(-1.82349, -7.07825)
-scale = Vector2(0.0715679, 0.0955349)
-texture = ExtResource("3_3ruov")
+position = Vector2(51.0576, -56.6261)
+scale = Vector2(0.790821, 1.06527)
+texture = ExtResource("2_0bxgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0.911774, 1.41562)
+position = Vector2(48.3225, -57.3341)
 shape = SubResource("RectangleShape2D_idxln")
 
 [node name="Still" type="Sprite2D" parent="player"]
-position = Vector2(-0.911713, -3.05176e-05)
-scale = Vector2(0.17893, 0.2)
-texture = ExtResource("1_qiyrl")
+position = Vector2(50.146, -59.4575)
+scale = Vector2(0.673551, 0.984782)
+texture = ExtResource("2_0bxgp")
 
 [node name="Running" type="Sprite2D" parent="player"]
-position = Vector2(-23.7054, -0.00012207)
-scale = Vector2(0.215647, 0.275192)
-texture = ExtResource("4_ybcbk")
+position = Vector2(49.2343, -60.8731)
+scale = Vector2(0.64917, 1.11086)
+texture = ExtResource("2_0bxgp")
 
 [node name="Jumping" type="Sprite2D" parent="player"]
-position = Vector2(1.82349, 2.8313)
-scale = Vector2(0.144045, 0.225116)
-texture = ExtResource("6_htpnw")
+position = Vector2(50.146, -59.4575)
+scale = Vector2(0.698848, 1.0637)
+texture = ExtResource("2_0bxgp")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 

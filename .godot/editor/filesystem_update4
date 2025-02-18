@@ -1,5 +1,2 @@
-res://barrier.gd
-res://player.gd
 res://Intro.tscn
-res://near_barrier.gd
-res://crowbar.gd
+res://TestLevel.tscn

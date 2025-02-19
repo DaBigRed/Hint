@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg3x1y7be4gsw"
-path="res://.godot/imported/gust.png-f1c3f4c042254b2d3a0a8030340196bf.ctex"
+path="res://.godot/imported/gust.png-c8af19ee9b845fe38ed8be9494897b4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/TestLevel/gust.png"
-dest_files=["res://.godot/imported/gust.png-f1c3f4c042254b2d3a0a8030340196bf.ctex"]
+source_file="res://gust.png"
+dest_files=["res://.godot/imported/gust.png-c8af19ee9b845fe38ed8be9494897b4a.ctex"]
 
 [params]
 

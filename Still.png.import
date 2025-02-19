@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7isejl88a6qp"
-path="res://.godot/imported/Still.png-31282369671880bb406cc3661de6d373.ctex"
+path="res://.godot/imported/Still.png-0ba5f276fbac538db75a5fae6c3f8801.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/player/Still.png"
-dest_files=["res://.godot/imported/Still.png-31282369671880bb406cc3661de6d373.ctex"]
+source_file="res://Still.png"
+dest_files=["res://.godot/imported/Still.png-0ba5f276fbac538db75a5fae6c3f8801.ctex"]
 
 [params]
 

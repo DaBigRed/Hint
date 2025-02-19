@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://4o1nff715drw"]
 
 [ext_resource type="Script" path="res://Game/world.gd" id="1_csl0g"]
-[ext_resource type="PackedScene" uid="uid://iagfh3rm6c63" path="res://Game/player.tscn" id="1_sffq8"]
-[ext_resource type="PackedScene" uid="uid://bueeq0mkekepq" path="res://Game/TestLevel.tscn" id="2_8mfus"]
-[ext_resource type="PackedScene" uid="uid://b33ioy6lwev66" path="res://Game/double_jump.tscn" id="5_8ecpt"]
-[ext_resource type="PackedScene" uid="uid://cq2v7y6pnoeev" path="res://Game/crowbar.tscn" id="5_dhq1p"]
-[ext_resource type="PackedScene" uid="uid://biew1gj570hqn" path="res://Game/barrier.tscn" id="6_670su"]
+[ext_resource type="PackedScene" uid="uid://iagfh3rm6c63" path="res://player.tscn" id="1_sffq8"]
+[ext_resource type="PackedScene" uid="uid://bueeq0mkekepq" path="res://TestLevel.tscn" id="2_8mfus"]
+[ext_resource type="PackedScene" uid="uid://b33ioy6lwev66" path="res://double_jump.tscn" id="5_8ecpt"]
+[ext_resource type="PackedScene" uid="uid://cq2v7y6pnoeev" path="res://crowbar.tscn" id="5_dhq1p"]
+[ext_resource type="PackedScene" uid="uid://biew1gj570hqn" path="res://barrier.tscn" id="6_670su"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_csl0g")
